@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution URL here](https://github.com/PhoenixDev22/expenses-chart-component-main)
-- Live Site URL: [Live site URL here]([https://your-live-site-url.com](https://phoenixdev22-expenses-chart.netlify.app/))
+- Live Site URL: [Live site URL here]([https://your-live-site-url.com](https://phoenixdev22-expenses-chart.netlify.app/)
 
 ## My process
 
