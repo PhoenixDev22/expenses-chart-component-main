@@ -22,16 +22,9 @@ async function getData(){
 
     allLevel.forEach(level => {
 
-        level.addEventListener("click", (e) => {
-            console.log(e.currentTarget)
-            array.forEach(element => {
-                if(e.currentTarget.dataset.day === element.day){
-                    createTooltip(e.currentTarget, element.amount)  
-                }
-            })
-        })
+      
 
-        level.addEventListener("mouseenter", (e) => {
+        level.addEventListener("mouseover", (e) => {
             console.log(e.currentTarget)
             array.forEach(element => {
                 if(e.currentTarget.dataset.day === element.day){
