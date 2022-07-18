@@ -15,7 +15,6 @@ This is a solution to the [Expenses chart component challenge on Frontend Mentor
 - [Author](#author)
 
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -36,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL here](https://github.com/PhoenixDev22/expenses-chart-component-main)
+- Live Site URL: [Live site URL here]([https://your-live-site-url.com](https://phoenixdev22-expenses-chart.netlify.app/))
 
 ## My process
 
@@ -56,6 +55,6 @@ Users should be able to:
 
 
 ## Author
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@PhoenixDev22](https://www.frontendmentor.io/profile/PhoenixDev22)
 
 
