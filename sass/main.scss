@@ -1,0 +1,268 @@
+$colors: (
+    "primary": (
+        "soft-red": hsl(10, 79%, 65%),
+        "cyan": hsl(186, 34%, 60%)
+    ),
+    "neutral": (
+        "dark-brown": hsl(25, 47%, 15%),
+        "meduim-brown": hsl(28, 10%, 53%),
+        "cream": hsl(27, 66%, 92%),
+        "very-pale-orange":  hsl(33, 100%, 98%),
+        "white": hsl(0, 0%, 100%)
+    )
+);
+
+$font-weights: (
+    "regular": 400,
+    "bold": 700
+);
+$radius-primary: 10px;
+$radius-neutral: 4px;
+$ff-primary: 'DM Sans', sans-serif;
+
+@function nested-map-get($map, $keys...){
+    @each $key in $keys{
+        $map: map-get($map, $key);
+    };
+    @return $map;
+}
+@mixin flex($direction, $justify){
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+html{
+    font-size: 100%;
+}
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+body{
+    background-color: nested-map-get($colors, "neutral", "cream");
+    padding: 0 1rem;
+    min-height: 100vh;
+    font-family: $ff-primary;
+    @include flex($direction:column, $justify:center)
+}
+.component{
+    max-width: 340px;
+    @include flex($direction: column, $justify: center);
+    row-gap: 1rem;
+}
+.upper-component{
+    @include flex($direction: row, $justify: space-between);
+    padding: 1.25rem;
+    color: nested-map-get($colors,"neutral", "white");
+    background-color: nested-map-get($colors,"primary", "soft-red");
+    border-radius:
+    $radius-primary;
+    width: 100%;
+
+}   
+.title{
+    font-size: 0.938rem;
+    font-weight: map-get($font-weights, "regular");
+    &-number{
+        font-size: 1.5rem;
+        font-weight: map-get($font-weights, "bold");
+        display: block;
+        margin-top: .5rem;
+    }
+}
+.logo{
+    width: 3.75rem;
+    height: 2.5rem;
+}
+.lower-component{
+    padding: 1.875rem 1.25rem;
+    background-color: nested-map-get($colors,"neutral", "white");
+    border-radius:
+    $radius-primary;
+}
+.spending-title{
+    font-size: 1.125rem;
+    color: nested-map-get($colors, "neutral", "dark-brown");
+    font-weight: map-get($font-weights, "bold");
+}
+.statics{
+    display: grid;
+    grid-template-columns: repeat(7, 1.875rem);
+    gap: 0.625rem;
+    padding: 1.563rem 0;
+    border-bottom: .063em solid nested-map-get($colors, "neutral", "meduim-brown")
+}
+.day{
+    @include flex($direction: column-reverse, $justify: center);
+    row-gap: 0.625rem;
+}
+.day-name{
+    color: nested-map-get($colors, "neutral", "meduim-brown");
+}
+.level{
+    position: relative;
+    width: 100%;
+    height: 11.25rem;
+    border-radius: $radius-neutral;
+}
+.level>span{
+    position: absolute;
+    bottom: 0;
+    border-radius: $radius-neutral;
+    background-color: nested-map-get($colors, "primary", "soft-red");
+    width:100%;
+    z-index: 3;
+    &:hover{
+        cursor: pointer;
+        background-color: lighten(nested-map-get($colors, "primary", "soft-red"), 10%);
+    }
+}
+.tooltip{
+    content:'';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: nested-map-get($colors, "neutral", "dark-brown");
+    padding: 0.438rem .313rem;
+    border-radius: $radius-neutral;
+    color: nested-map-get($colors, "neutral", "white");
+    font-weight: map-get($font-weights, "bold");
+    font-size: 0.625rem;
+    z-index: 3;
+}
+.level > span.cyan {
+    background-color: nested-map-get($colors, "primary", "cyan");
+    &:hover{
+        background-color: lighten(nested-map-get($colors, "primary", "cyan"), 10%);
+    }
+}
+.total{
+    padding-top: 1.563rem;
+    @include flex($direction: row, $justify: space-between);
+    align-items: flex-end;
+}
+.total-title{
+    font-size: 0.938rem;
+    font-weight: map-get($font-weights, "regular");
+    color: map-get($colors, "neutral", "meduim-brown");
+    & > span{
+        display: block;
+        font-size: 1.875rem;
+        font-weight: map-get($font-weights, "bold");
+        color: map-get($colors, "neutral", "dark-brown");
+    }
+}
+.total-increase{
+    @include flex($direction: column, $justify: flex-end);
+    align-items: flex-end;
+    font-size: 14px;
+    color: map-get($colors, "neutral", "meduim-brown");
+
+}
+.total-increase_percentage{
+    display: block;
+    font-size: 1.125rem;
+    font-weight: map-get($font-weights, "bold");
+    color: map-get($colors, "neutral", "dark-brown");
+}
+.attribution{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: white;    
+}
+.link{
+   border-radius: 50%;
+   width: 2.5rem;
+   height: 2.5rem;
+   display: block;
+   position: relative;
+   z-index: 3;
+   transition: .25s ease-in-out;
+}
+.attribution img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.link::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    bottom: -2px;
+    right: -2px;
+    border-radius: 50%;
+    background: linear-gradient( map-get($colors, "primary", "soft-red") 10%,map-get($colors, "primary", "cyan") 10%);
+    z-index: -1;
+    transition: .25s ease-in-out;
+}
+.link:hover.link::before{
+    transform: rotate(360deg);
+}
+@media screen and (min-width: 50em){
+    .component{
+        max-width: 33.75rem;
+        row-gap: 1.563rem;
+    }
+    .statics{
+        grid-template-columns: repeat(7, 3.125rem);
+        gap: 1rem;
+    }
+    .upper-component{  
+        padding: 1.563rem 2.5rem;
+    } 
+    .title{
+        font-size: 1.25rem;
+        &-number{
+            font-size: 2rem;
+        }
+    }
+    .logo{
+        width: 4.375rem;
+        height: 2.5rem;
+    }
+    .lower-component{
+        padding: 2.813rem 2.5rem;
+    }
+    .spending-title{
+        font-size: 2rem;
+    }
+    .total-title{
+        font-size: 1.125rem;
+        & > span{ 
+            font-size: 3rem;
+        }
+    }
+    .total-increase{
+        font-size: 1.125rem;
+    }
+    .total-increase_percentage{
+        font-size: 1.125rem;
+    }
+    .tooltip{
+        top: -2.7rem;
+        padding: 0.563rem 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
