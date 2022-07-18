@@ -93,7 +93,7 @@ body{
 }
 .lower-component{
     padding: 1.875rem 1.25rem;
-    background-color: nested-map-get($colors,"neutral", "white");
+    background-color: nested-map-get($colors,"neutral", "very-pale-orange");
     border-radius:
     $radius-primary;
 }
