@@ -80,7 +80,7 @@ body {
   padding: 1.25rem;
   color: hsl(0deg, 0%, 100%);
   background-color: hsl(10deg, 79%, 65%);
-  border-radius: 10px;
+  border-radius: 1.25rem;
   width: 100%;
 }
 
@@ -103,7 +103,7 @@ body {
 .lower-component {
   padding: 1.875rem 1.25rem;
   background-color: hsl(33, 100%, 98%);
-  border-radius: 10px;
+  border-radius: 1.25rem;
 }
 
 .spending-title {
