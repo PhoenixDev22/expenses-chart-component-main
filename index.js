@@ -1,5 +1,8 @@
 const allLevel = Array.from(document.querySelectorAll(".level > span"))
 
+const day = new Date()
+const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+let today = days[day.getDay()]
 
 // console.log(getMaximum(array))
 async function getData(){
@@ -12,8 +15,8 @@ async function getData(){
     allLevel.forEach(level => {
         array.forEach(element => {
             if(level.dataset.day === element.day){
-                setHeight(level,element.amount, max)
-                if(element.amount === max){
+               setHeight(level,element.amount, max)
+                if(element.day === today){
                     level.classList.add("cyan")
                 }
             }
@@ -21,7 +24,7 @@ async function getData(){
     })
 
     allLevel.forEach(level => {
-        level.addEventListener("mouseenter", (e) => {
+        level.addEventListener("mouseover", (e) => {
             console.log(e.currentTarget)
             array.forEach(element => {
                 if(e.currentTarget.dataset.day === element.day){
