@@ -16,7 +16,7 @@ $font-weights: (
     "regular": 400,
     "bold": 700
 );
-$radius-primary: 10px;
+$radius-primary: 1.25rem;
 $radius-neutral: 4px;
 $ff-primary: 'DM Sans', sans-serif;
 
@@ -93,7 +93,7 @@ body{
 }
 .lower-component{
     padding: 1.875rem 1.25rem;
-    background-color: nested-map-get($colors,"neutral", "white");
+    background-color: nested-map-get($colors,"neutral", "very-pale-orange");
     border-radius:
     $radius-primary;
 }
@@ -187,7 +187,7 @@ body{
 }
 .attribution{
     position: absolute;
-    bottom: 1rem;
+    top: 1rem;
     right: 1rem;
     color: white;    
 }

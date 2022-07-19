@@ -32,7 +32,8 @@ async function getData(){
                 }
             })
         })
-        level.addEventListener("mouseleave", (e) => {
+
+        level.addEventListener("mouseleave", () => {
             document.querySelector('.tooltip').remove()  
         }) 
     })
